@@ -1,0 +1,793 @@
+@charset "UTF-8";
+body, ul, li, ol, p, pre, form, input, label, span, dd, del, div, dl, dt, em, i, strong, iframe, img, s, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  color: #8B8B8B;
+  font-size: 12px;
+  font-family: Arial;
+  line-height: 1.5em;
+}
+
+a {
+  text-decoration: none;
+}
+
+.player {
+  width: 563px;
+  height: 115px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.42);
+  border-radius: 4px;
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  transform: translateX(0);
+  transition: transform 0.5s ease;
+}
+
+.shou {
+  transform: translateX(-541px);
+}
+
+.player_dock {
+  width: 541px;
+  height: 115px;
+  background: #000;
+}
+
+/*music_info*/
+.player .music_info {
+  height: 111px;
+}
+
+.player .music_info .album_pic {
+  display: block;
+  width: 90px;
+  height: 90px;
+  margin: 10px;
+  float: left;
+  overflow: hidden;
+  background: silver;
+}
+
+.player .music_info .music_info_main {
+  float: left;
+  font-family: tahoma;
+}
+
+.player .music_info p {
+  margin: 5px 0;
+}
+
+.music_info_main .music_name, .music_info_main .music_name #music_name, .music_info_main .singer_name, .player .single_list .lis .music_name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.icon_radio {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -453px -55px;
+}
+
+.btn_like {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: 0 -127px;
+}
+
+.btn_share {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -16px -127px;
+}
+
+.prev_bt {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -69px 0;
+}
+
+.play_bt {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -105px 0;
+}
+
+.pause_bt {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -291px -88px;
+}
+
+.next_bt {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -147px 0;
+}
+
+.circle_bt {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -219px 0;
+}
+
+.circle_btt {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -376px -44px;
+}
+
+.circle_single_bt {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -376px 0;
+}
+
+.ordered_bt {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -408px 0;
+}
+
+.unordered_bt {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -408px -44px;
+}
+
+.volume_icon {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -189px -3px;
+}
+
+.volume_mute {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -152px -63px;
+}
+
+.volume_regulate {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -291px -11px;
+}
+
+.volume_bar {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -291px 0;
+}
+
+.volume_op {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -366px 0;
+}
+
+.active_tip {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -376px -89px;
+}
+
+.open_list {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -222px -97px;
+}
+
+.btn_lyrics_disabled {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -452px 0;
+}
+
+.folded_bt {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: 0 0;
+}
+
+.close_list {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -269px -97px;
+}
+
+.btn_fav {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -64px -127px;
+}
+
+.btn_del {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -48px -127px;
+}
+
+.btn_down {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -32px -127px;
+}
+
+.close_lyrics {
+  background: url(../images/player_bg.png) no-repeat;
+  background-position: -503px 0;
+}
+
+.btn_like:hover {
+  background-position: 0 -145px;
+}
+
+.btn_share:hover {
+  background-position: -16px -145px;
+}
+
+.prev_bt:hover {
+  background-position: -69px -32px;
+}
+
+.play_bt:hover {
+  background-position: -105px -42px;
+}
+
+.pause_bt:hover {
+  background-position: -333px -88px;
+}
+
+.next_bt:hover {
+  background-position: -147px -32px;
+}
+
+.circle_bt:hover {
+  background-position: -219px -32px;
+}
+
+.circle_btt:hover {
+  background-position: -376px -66px;
+}
+
+.circle_single_bt:hover {
+  background-position: -376px -22px;
+}
+
+.ordered_bt:hover {
+  background-position: -408px -22px;
+}
+
+.unordered_bt:hover {
+  background-position: -408px -66px;
+}
+
+.volume_icon:hover {
+  background-position: -189px -35px;
+}
+
+.volume_mute:hover {
+  background-position: -189px -63px;
+}
+
+.volume_regulate:hover {
+  background-position: -291px -11px;
+}
+
+.volume_op:hover {
+  background-position: -366px -16px;
+}
+
+.btn_fav:hover {
+  background-position: -64px -145px;
+}
+
+.btn_del:hover {
+  background-position: -48px -145px;
+}
+
+.btn_down:hover {
+  background-position: -32px -145px;
+}
+
+.player .bar_op strong.ordered_bt {
+  background-position: -291px -32px;
+}
+
+.player .bar_op:hover strong.ordered_bt {
+  background-position: -291px -60px;
+}
+
+.player .bar_op strong.unordered_bt {
+  background-position: -327px -32px;
+}
+
+.player .bar_op:hover strong.unordered_bt {
+  background-position: -327px -60px;
+}
+
+.player .bar_op strong.circle_single_bt {
+  background-position: -255px 0;
+}
+
+.player .bar_op:hover strong.circle_single_bt {
+  background-position: -255px -32px;
+}
+
+.player .bar_op strong.circle_btt {
+  background-position: -219px 0;
+}
+
+.player .bar_op:hover strong.circle_btt {
+  background-position: -219px -32px;
+}
+
+/*music_info_main*/
+.music_info_main .music_name {
+  width: 300px;
+  height: 20px;
+  color: #fff;
+}
+
+.music_info_main .music_name #music_name {
+  float: left;
+  max-width: 210px;
+}
+
+.music_info_main .music_name .icon_radio {
+  float: left;
+  width: 75px;
+  height: 20px;
+  margin: 0 0 0 10px;
+}
+
+.music_info_main .singer_name {
+  color: #828282;
+  width: 120px;
+  height: 20px;
+}
+
+.music_info_main .play_date {
+  color: #595959;
+  height: 20px;
+}
+
+.music_info_main .music_op strong {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  margin: 0 2px 0 0;
+  cursor: pointer;
+}
+
+.music_info_main .music_op strong span {
+  display: none;
+}
+
+/*bar_op*/
+.player .bar_op {
+  position: absolute;
+  left: 248px;
+  top: 43px;
+  width: 280px;
+}
+
+.player .bar_op strong {
+  width: 36px;
+  height: 28px;
+  margin: 7px 0 0 3px;
+  float: left;
+  cursor: pointer;
+}
+
+.player .bar_op strong span {
+  display: none;
+}
+
+.player .bar_op strong.play_bt, .player .bar_op strong.pause_bt {
+  width: 42px;
+  height: 42px;
+  margin-top: 0;
+}
+
+.player .bar_op p.volume {
+  float: left;
+  display: inline-block;
+  width: 100px;
+  height: 24px;
+  margin: 10px 0 0 8px;
+}
+
+p.volume .volume_icon, p.volume .volume_mute, p.volume .volume_regulate, p.volume .volume_regulate .volume_bar, p.volume .volume_regulate .volume_op {
+  display: inline-block;
+  height: 11px;
+  cursor: pointer;
+}
+
+/*volume*/
+p.volume .volume_icon, p.volume .volume_mute {
+  width: 24px;
+  height: 24px;
+  vertical-align: -7px;
+}
+
+p.volume .volume_regulate {
+  width: 71px;
+  position: relative;
+}
+
+p.volume .volume_regulate .volume_bar {
+  /*width: 26px;*/
+  width: 30%;
+  position: absolute;
+}
+
+p.volume .volume_regulate .volume_op {
+  width: 6px;
+  position: absolute;
+  top: 0;
+  left: 30%;
+}
+
+/*player_cp_select*/
+.player .playbar_cp_select {
+  width: 32px;
+  padding: 5px 0;
+  background: #383838;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.42);
+  border-radius: 3px;
+  position: absolute;
+  left: 376px;
+  bottom: 35px;
+  z-index: 12;
+}
+
+.player .playbar_cp_select strong {
+  display: block;
+  width: 32px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.player .playbar_cp_select strong span {
+  display: none;
+}
+
+.player .player_bar .player_bg_bar, .player .player_bar .download_bar {
+  width: 100%;
+  height: 4px;
+  background: #323232;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/*player_bar*/
+.player .player_bar {
+  width: 541px;
+  height: 4px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.player .player_bar .player_bg_bar {
+  background: #323232;
+  z-index: 1;
+}
+
+.player .player_bar .download_bar {
+  background: #2c4838;
+  z-index: 2;
+}
+
+.player .player_bar .play_current_bar {
+  background: #0cc65b;
+  position: absolute;
+  z-index: 3;
+  height: 4px;
+  display: block;
+}
+
+.player .player_bar .progress_op {
+  width: 7px;
+  height: 6px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: -1px;
+  right: 0;
+  z-index: 3;
+  background: url(../images/progress_op.png) no-repeat;
+}
+
+.player .time_show .icon_arrow_foot .foot_border, .player .time_show .icon_arrow_foot .foot_arrow {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  display: inline-block;
+  border-style: solid dashed dashed dashed;
+}
+
+/*timeshow*/
+.player .time_show {
+  width: 50px;
+  height: 24px;
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  z-index: 3;
+}
+
+.player .time_show #time_show {
+  font-size: 10px;
+  font-family: Arial;
+  color: #fff;
+  line-height: 17px;
+  text-align: center;
+  height: 17px;
+  border: 1px solid #666;
+  background: #2f2f2f;
+}
+
+.player .time_show .icon_arrow_foot {
+  display: block;
+  width: 13px;
+  height: 7px;
+  position: relative;
+  top: -1px;
+  left: 17px;
+  overflow: hidden;
+}
+
+.player .time_show .icon_arrow_foot .foot_border {
+  border-width: 7px;
+  border-color: #666 transparent transparent transparent;
+  position: absolute;
+  top: -1px;
+}
+
+.player .time_show .icon_arrow_foot .foot_arrow {
+  border-width: 5px;
+  border-color: #2f2f2f transparent transparent transparent;
+  position: absolute;
+  left: 2px;
+  top: -1px;
+}
+
+.player .active_tip {
+  width: 17px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: -30px;
+  right: 3px;
+}
+
+/*open_list*/
+.player .open_list {
+  width: 47px;
+  height: 28px;
+  position: absolute;
+  top: 0;
+  right: 61px;
+  cursor: pointer;
+}
+
+.player .open_list span.song_num {
+  display: inline-block;
+  font-size: 11px;
+  font-family: tahoma;
+  color: #fff;
+  line-height: 28px;
+  text-align: center;
+  width: 24px;
+  height: 28px;
+  margin: 0 0 0 23px;
+}
+
+/*lyric*/
+.player .btn_lyrics_disabled {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 7px;
+  right: 37px;
+  cursor: pointer;
+}
+
+/*folded_bt*/
+.player .folded_bt {
+  width: 22px;
+  height: 115px;
+  border: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.player .folded_bt span {
+  display: none;
+}
+
+/*底部盒子结束*/
+/*播放列表开始*/
+.player .play_list_frame .play_list_title ul li a {
+  height: 52px;
+  float: left;
+  padding: 0 20px;
+  font-size: 18px;
+  font-family: "微软雅黑";
+  color: #fff;
+  line-height: 52px;
+  text-align: center;
+}
+
+/*play_list_title*/
+.appear {
+  opacity: 0;
+}
+
+.player .play_list_frame {
+  width: 541px;
+  height: 507px;
+  background: #1B1B1B;
+  position: absolute;
+  left: 0;
+  top: -507px;
+  z-index: 11;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.42);
+  transition: opacity 0.5s ease;
+}
+
+.player .play_list_frame .play_list_title {
+  height: 52px;
+  background: #000;
+  position: relative;
+  z-index: 2;
+}
+
+.player .play_list_frame .play_list_title ul li a {
+  background: #262626;
+}
+
+.player .play_list_frame .play_list_title .fm_tab a {
+  background: none;
+}
+
+.player .play_list_frame .clear_list {
+  color: #999;
+  position: absolute;
+  top: 18px;
+  right: 31px;
+  cursor: pointer;
+}
+
+.player .play_list_frame .close_list {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 3px;
+  right: 7px;
+  cursor: pointer;
+}
+
+/*play_list*/
+.player .play_list {
+  height: 455px;
+  border-top: 1px solid #262626;
+  /*overflow: auto;*/
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.player .play_list .play_list_main {
+  width: 529px;
+  height: 455px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+/*single_list*/
+.player .single_list .lis {
+  width: 509px;
+  height: 23px;
+  margin: 2px 0 3px;
+  padding-left: 20px;
+  position: relative;
+  border-top: solid 1px #1B1B1B;
+}
+
+.player .single_list .lis .list_cp strong {
+  width: 16px;
+  height: 15px;
+  margin-right: 5px;
+  cursor: pointer;
+  display: inline-block;
+  /*color: #595959;*/
+  color: #fff;
+  font-weight: normal;
+  position: relative;
+  top: -20px;
+  left: 420px;
+  z-index: 100;
+}
+
+.player .single_list .lis:hover {
+  color: #fff;
+  background: #000;
+}
+
+.player .single_list .lis:hover .list_cp {
+  display: block;
+}
+
+.player .single_list .lis:hover .play_time {
+  display: none;
+}
+
+.player .single_list .lis .music_name {
+  line-height: 24px;
+  width: 254px;
+  line-height: 24px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.player .single_list .lis .singer_name {
+  width: 180px;
+  line-height: 24px;
+  font-weight: normal;
+  cursor: pointer;
+  position: absolute;
+  left: 290px;
+  top: 0;
+}
+
+.player .single_list .lis .play_time {
+  width: 34px;
+  line-height: 24px;
+  font-weight: normal;
+  position: absolute;
+  top: 0;
+  right: 17px;
+}
+
+.player .single_list .lis .list_cp {
+  display: none;
+}
+
+.player .single_list .lis .list_cp strong span {
+  display: none;
+}
+
+.player .single_list li.current {
+  color: #0cc65b;
+}
+
+/*lyric*/
+.player .y_player_lyrics {
+  width: 249px;
+  height: 94px;
+  position: absolute;
+  top: 0;
+  right: -250px;
+  z-index: 2;
+}
+
+.player .y_player_lyrics .lyrics_text {
+  height: 93px;
+  margin: 10px 10px 0;
+  font-family: "微软雅黑";
+  color: #f5f5f5;
+  line-height: 24px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.player .y_player_lyrics .lyrics_bg {
+  width: 249px;
+  height: 115px;
+  background: #000;
+  border-radius: 0 5px 5px 0;
+  opacity: 0.8;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.42);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.player .y_player_lyrics .close_lyrics {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 9px;
+  right: 8px;
+  cursor: pointer;
+}

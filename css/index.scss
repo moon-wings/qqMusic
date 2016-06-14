@@ -1,0 +1,627 @@
+%reset{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+body,ul,li,ol,p,pre,form,input,label,span,dd,del,div,dl,dt,em,i,strong,iframe,img,s,h1,h2,h3,h4,h5,h6{
+	@extend %reset;
+}
+body{
+	color: #8B8B8B;
+	font-size: 12px;
+	font-family: Arial;
+	line-height: 1.5em;
+}
+a{
+	text-decoration: none;
+}
+.player{
+	width: 563px;
+	height: 115px;
+	box-shadow: 3px 3px 6px rgba(0,0,0,.42);
+    border-radius: 4px;
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+	transform: translateX(0);
+	transition: transform 0.5s ease;
+}
+.shou{
+	transform: translateX(-541px);
+}
+.player_dock{
+	width: 541px;
+	height: 115px;
+	background: #000;
+}
+
+@mixin player_inner($width,$height,$margin){
+	width:  $width;
+	height: $height;
+	margin: $margin;
+}
+
+/*music_info*/
+.player{
+	.music_info{
+		height: 111px;
+
+		.album_pic{
+			display: block;
+			@include player_inner(90px,90px,10px)
+			float: left;
+			overflow: hidden;
+			background: silver;
+		}
+		.music_info_main{
+			float: left;
+			font-family: tahoma;
+		}
+		p{
+			margin:5px 0;
+		}
+	}
+}
+
+%text{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+$icon:(
+	'icon_radio' : -453px -55px,
+	'btn_like'   :  0 -127px,
+	'btn_share'  : -16px -127px,
+	'prev_bt'    : -69px 0,
+	'play_bt'    : -105px 0,
+	'pause_bt'   : -291px -88px,
+	'next_bt'    : -147px 0,
+	'circle_bt'  : -219px 0,
+	'circle_btt' : -376px -44px,
+	'circle_single_bt' :-376px 0,
+	'ordered_bt' : -408px 0,
+	'unordered_bt' : -408px -44px,
+	'volume_icon'  : -189px -3px,
+	'volume_mute'  : -152px -63px,
+	'volume_regulate':-291px -11px,
+	'volume_bar'   : -291px 0,
+	'volume_op'    : -366px 0,
+	'active_tip'   : -376px -89px,
+	'open_list'    : -222px -97px,
+	'btn_lyrics_disabled' : -452px 0,
+	'folded_bt' :0 0,
+	'close_list' :-269px -97px,
+	'btn_fav': -64px -127px,
+	'btn_del':-48px -127px,
+	'btn_down':-32px -127px,
+	'close_lyrics':-503px 0,
+);
+@each $class-name in map_keys($icon){
+	$site: map_get($icon,$class-name);
+	.#{$class-name} {
+		background: url(../images/player_bg.png) no-repeat;
+		background-position: $site;
+	}; 
+}
+
+$icons:( 
+	'btn_like':0 -145px,
+	'btn_share':-16px -145px,
+	'prev_bt':-69px -32px,
+	'play_bt':-105px -42px,
+	'pause_bt':-333px -88px,
+	'next_bt':-147px -32px,
+	'circle_bt':-219px -32px,
+	'circle_btt':-376px -66px,
+	'circle_single_bt':-376px -22px,
+	'ordered_bt':-408px -22px,
+	'unordered_bt':-408px -66px,
+	'volume_icon':-189px -35px,
+	'volume_mute':-189px -63px,
+	'volume_regulate':-291px -11px,
+	/*'volume_bar':-291px -22px,*/
+	'volume_op':-366px -16px,
+	'btn_fav': -64px -145px,
+	'btn_del':-48px -145px,
+	'btn_down':-32px -145px,
+);
+@each $class-name in map_keys($icon){
+	$positions: map_get($icons,$class-name);
+	.#{$class-name}:hover {
+		background-position: $positions;
+	}; 
+}
+
+.player .bar_op strong.ordered_bt {
+    background-position: -291px -32px;
+}
+.player .bar_op:hover strong.ordered_bt {
+    background-position: -291px -60px;
+}
+.player .bar_op strong.unordered_bt {
+    background-position: -327px -32px;
+}
+.player .bar_op:hover strong.unordered_bt {
+    background-position: -327px -60px;
+}
+.player .bar_op strong.circle_single_bt {
+    background-position: -255px 0;
+}
+.player .bar_op:hover strong.circle_single_bt {
+    background-position: -255px -32px;
+}
+.player .bar_op strong.circle_btt {
+    background-position: -219px 0;
+}
+.player .bar_op:hover strong.circle_btt {
+    background-position: -219px -32px;
+}
+
+
+
+
+/*music_info_main*/
+.music_info_main{
+	.music_name{
+		width: 300px;
+		height: 20px;
+		color: #fff;
+		@extend %text;
+
+		#music_name{
+			float: left;
+			max-width: 210px;
+			@extend %text;
+		}
+		.icon_radio{
+			float: left;
+		    @include player_inner(75px,20px,(0 0 0 10px))
+		}
+	}
+	.singer_name{
+		color: #828282;
+	    width: 120px;
+	    height: 20px;
+	    @extend %text;
+	}
+	.play_date{
+	    color: #595959;
+	    height: 20px;
+	}
+	.music_op{
+		strong{
+			display: inline-block;
+		    @include player_inner(16px,15px,(0 2px 0 0))
+		    cursor: pointer;
+
+		    span{
+		    	display: none;
+		    }
+		}
+	}
+}
+
+@mixin weizhi($left,$bottom,$top,$right){
+	position: absolute;
+	left: $left;
+	bottom: $bottom;
+	top: $top;
+	right: $right;
+}
+
+/*bar_op*/
+.player{
+	.bar_op{
+	    @include weizhi(248px,null,43px,null);
+	    width: 280px;
+
+	    strong{
+			@include player_inner(36px,28px,(7px 0 0 3px))
+			float: left;
+			cursor: pointer;
+
+			span{
+				display: none;
+			}
+	    }
+	    strong.play_bt,strong.pause_bt{
+		    width: 42px;
+		    height: 42px;
+		    margin-top: 0;
+	    }
+	    p.volume{
+		    float: left;
+	    	display: inline-block;
+		    @include player_inner(100px,24px,(10px 0 0 8px))
+	    }
+	}
+}
+
+%volume_regulate_inner{
+	display: inline-block;
+    height: 11px;
+	cursor: pointer;
+}
+
+/*volume*/
+p.volume{
+	.volume_icon,.volume_mute{
+	    @extend %volume_regulate_inner;
+	    width: 24px;
+	    height: 24px;
+		vertical-align: -7px;
+	}
+	.volume_regulate{
+		@extend %volume_regulate_inner;
+		width: 71px;
+		position: relative;
+
+		.volume_bar{
+			/*width: 26px;*/
+			width: 30%;
+			position: absolute;
+			@extend %volume_regulate_inner;
+		}
+		.volume_op{
+			width: 6px;
+			position: absolute;
+            top: 0;
+            left: 30%;
+			@extend %volume_regulate_inner;
+		}
+	}
+
+}
+
+/*player_cp_select*/
+.player{
+	.playbar_cp_select{
+		width: 32px;
+        padding: 5px 0;
+        background: #383838;
+        box-shadow: 3px 3px 6px rgba(0,0,0,.42);
+        border-radius: 3px;
+        @include weizhi(376px,35px,null,null);
+        z-index: 12;
+
+        strong{
+        	display: block;
+		    width: 32px;
+		    height: 22px;
+		    cursor: pointer;
+
+		    span{
+		    	display: none;
+		    }
+        }
+	}
+}
+
+%player_bars{
+	width: 100%;
+    height: 4px;
+    background: #323232;
+    @include weizhi(0,0,null,null);
+    z-index: 1;
+    cursor: pointer;
+}
+
+/*player_bar*/
+.player{
+	.player_bar{
+		width: 541px;
+	    height: 4px;
+	    @include weizhi(0,0,null,null);
+
+	    .player_bg_bar{
+	    	@extend %player_bars;
+		    background: #323232;
+		    z-index: 1;
+	    }
+	    .download_bar{
+	    	@extend %player_bars;
+	    	background: #2c4838;
+	    	z-index: 2;
+	    }
+	    .play_current_bar{
+	    	background: #0cc65b;
+	    	position: absolute;
+	    	z-index: 3;
+	    	height: 4px;
+	    	display: block;
+	    }
+	    .progress_op{
+	    	width: 7px;
+	    	height: 6px;
+	    	@include weizhi(0,0,-1px,0);
+	    	z-index: 3;
+	    	background: url(../images/progress_op.png) no-repeat;
+	    }
+	}
+}
+
+%foot{
+	width: 0;
+    height: 0;
+    overflow: hidden;
+    display: inline-block;
+    border-style: solid dashed dashed dashed;
+}
+@mixin font($font-size,$font-family,$color,$line-height,$text-align){
+    font-size: $font-size;
+    font-family: $font-family;
+    color: $color;
+    line-height: $line-height;
+    text-align: $text-align;
+}
+/*timeshow*/
+.player{
+	.time_show{
+		width: 50px;
+	    height: 24px;
+	    @include weizhi(0,8px,null,null);
+	    z-index: 3;
+
+	    #time_show{
+	    	@include font(10px,Arial,#fff,17px,center);
+	    	height: 17px;
+		    border: 1px solid #666;
+		    background: #2f2f2f;
+		}
+		.icon_arrow_foot{
+			display: block;
+		    width: 13px;
+		    height: 7px;
+		    position: relative;
+		    top: -1px;
+		    left: 17px;
+		    overflow: hidden;
+
+		    .foot_border{
+		    	@extend %foot;
+			    border-width: 7px;
+			    border-color: #666 transparent transparent transparent;
+			    @include weizhi(null,null,-1px,null);
+		    }
+		    .foot_arrow{
+		    	@extend %foot;
+			    border-width: 5px;
+			    border-color: #2f2f2f transparent transparent transparent;
+			    @include weizhi(2px,null,-1px,null);
+		    }
+		}
+	}
+
+}
+
+.player{
+	.active_tip{
+		width: 17px;
+		height: 20px;
+		display: block;
+		@include weizhi(null,null,-30px,3px);
+	}
+}
+
+/*open_list*/
+.player{
+	.open_list{
+		width: 47px;
+		height: 28px;
+		@include weizhi(null,null,0,61px);
+		cursor: pointer;
+
+		span.song_num{
+			display: inline-block;
+			@include font(11px,tahoma,#fff,28px,center);
+			@include player_inner(24px,28px,(0 0 0 23px))
+		}
+	}
+}
+
+/*lyric*/
+.player{
+	.btn_lyrics_disabled{
+	    width: 14px;
+	    height: 14px;
+	    @include weizhi(null,null,7px,37px);
+	    cursor: pointer;
+	}
+}
+
+/*folded_bt*/
+.player{
+	.folded_bt{
+	    width: 22px;
+	    height: 115px;
+	    border: 0;
+	    @include weizhi(null,null,0,0);
+
+	    span{
+	    	display: none;
+	    }
+	}
+}
+
+/*底部盒子结束*/
+/*播放列表开始*/
+
+%tab_container{
+	height: 52px;
+	float: left;
+    padding: 0 20px;
+    @include font(18px,"微软雅黑",#fff,52px,center); 
+}
+
+/*play_list_title*/
+.appear{
+	opacity: 0;
+}
+.player{
+	.play_list_frame{
+	    width: 541px;
+	    height: 507px;
+		background: #1B1B1B;
+	    @include weizhi(0,null,-507px,null);
+	    z-index: 11;
+	    box-shadow: 3px 3px 6px rgba(0,0,0,.42);
+	    transition: opacity 0.5s ease;
+
+	    .play_list_title{
+		    height: 52px;
+	    	background: #000;
+		    position: relative;
+		    z-index: 2;
+
+		    ul li{
+				a{
+					background: #262626;
+					@extend %tab_container;
+				}
+		    }
+		    .fm_tab a{
+		    	background: none;
+		    }
+	    }
+	    .clear_list{
+    	    color: #999;
+			@include weizhi(null,null,18px,31px)
+			cursor: pointer;
+	    }
+	    .close_list{
+	    	width: 20px;
+	    	height: 20px;
+			@include weizhi(null,null,3px,7px);
+			cursor: pointer;
+	    }
+	}
+}
+
+/*play_list*/
+
+.player{
+	.play_list{
+		height: 455px;
+	    border-top: 1px solid #262626;
+	    /*overflow: auto;*/
+	    overflow: hidden;
+	    position: relative;
+	    z-index: 1;
+
+	    .play_list_main{
+	    	width: 529px;
+		    height: 455px;
+		    @include weizhi(0,null,0,null);
+		    z-index: 100;
+
+	    }
+	}
+}
+
+/*single_list*/
+%lis{
+    @include player_inner(509px,23px,(2px 0 3px))
+    padding-left: 20px;
+    position: relative;
+    border-top: solid 1px #1B1B1B;
+}
+@mixin lis_inner($width,$line-height,$font-weight,$pointer){
+	width: $width;
+	line-height: $line-height;
+	font-weight: $font-weight;
+	cursor: $pointer;
+}
+%list_cp_inner{
+	width: 16px;
+    height: 15px;
+    margin-right: 5px;
+    cursor: pointer;
+    display: inline-block;
+    /*color: #595959;*/
+    color: #fff;
+    font-weight: normal;
+    position: relative;
+    top: -20px;
+    left: 420px;
+    z-index: 100;
+}
+
+.player{
+	.single_list{
+		.lis{
+			@extend %lis;
+			&:hover{
+				color:#fff;
+				background: #000;
+			}
+			&:hover .list_cp{
+				display: block;
+			}
+			&:hover .play_time{
+				display: none;
+			}
+			
+			.music_name{
+			    @include font(null,null,null,24px,null);
+			    @include lis_inner(254px,24px,normal,pointer)
+			    @extend %text;
+			}
+			.singer_name{
+				@include lis_inner(180px,24px,normal,pointer)
+			    @include weizhi(290px,null,0,null)
+			}
+			.play_time{
+				@include lis_inner(34px,24px,normal,null)
+			    @include weizhi(null,null,0,17px)
+			}
+			.list_cp{
+				display: none;
+				strong{
+					@extend %list_cp_inner;
+
+					span{
+						display: none;
+					}
+				}
+			}
+		}
+		
+		li.current{
+			color: #0cc65b;
+		}
+	}
+}
+
+/*lyric*/
+.player{
+	.y_player_lyrics{
+	    width: 249px;
+	    height: 94px;
+	    @include weizhi(null,null,0,-250px)
+	    z-index: 2;
+
+	    .lyrics_text{
+		    @include player_inner(null,93px,(10px 10px 0))
+		    @include font(null,"微软雅黑",#f5f5f5,24px,center);
+		    overflow: hidden;
+	    }
+	    .lyrics_bg{
+		    width: 249px;
+		    height: 115px;
+		    background: #000;
+		    border-radius: 0 5px 5px 0;
+		    opacity: 0.8;
+		    box-shadow: 3px 3px 6px rgba(0,0,0,.42);
+		    @include weizhi(0,null,0,null)
+		    z-index: -1;
+	    }
+	    .close_lyrics{
+		    width: 8px;
+		    height: 8px;
+		    @include weizhi(null,null,9px,8px)
+		    cursor: pointer;
+	    }
+	}
+}
+

@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>qqMusic</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<audio src="./musics/单簧管-加伏特舞曲.mp3" id="audio"  controls="true" style="opacity: 0;"></audio>
+	<div class="player">
+		<div class="player_dock">
+			<div class="music_info">
+				<a href="" class="album_pic">
+					<img src="" alt="">
+				</a>
+				<div class="music_info_main">
+					<p class="music_name">
+						<span id="music_name"><!-- xy2-001大唐境内 --></span>
+						<a class="icon_radio"></a>
+					</p>
+					<p class="singer_name"><!-- 网易 --></p>
+					<p class="play_date"><!-- 2:16 --></p>
+					<p class="music_op">
+						<strong class="btn_like">
+							<span>我喜欢</span>
+						</strong>
+						<strong class="btn_share">
+							<span>分享</span>
+						</strong>
+					</p>
+				</div>
+			</div>
+			<div class="bar_op">
+				<strong class="prev_bt">
+					<span>上一首</span>
+				</strong>
+				<strong class="play_bt" id="pause">
+					<span>播放</span>
+				</strong>
+				<strong class="next_bt">
+					<span>下一首</span>
+				</strong>
+				<strong class="circle_bt">
+					<span>列表循环</span>
+				</strong>
+				<p class="volume">
+					<span class="volume_icon"></span>
+					<span class="volume_regulate">
+						<span class="volume_bar"></span>
+						<span class="volume_op"></span>
+					</span>
+				</p>
+			</div>
+			<p class="playbar_cp_select" style="display: none;">
+				<strong class="ordered_bt"></strong>
+				<strong class="unordered_bt"></strong>
+				<strong class="circle_single_bt"></strong>
+				<strong class="circle_btt">
+					<span>列表循环</span>
+				</strong>
+			</p>
+			<p class="player_bar">
+				<span class="player_bg_bar"></span>
+				<span class="download_bar"></span>
+				<span class="play_current_bar"></span>
+				<span class="progress_op"></span>
+			</p>
+			<div class="time_show" style="display: none;">
+				<p id="time_show">01:10</p>
+				<span class="icon_arrow_foot">
+					<i class="foot_border"></i>
+					<i class="foot_arrow"></i>
+				</span>
+			</div>
+		</div>
+		<span class="active_tip"></span>
+		<span class="open_list">
+			<span class="song_num">2</span>
+		</span>
+		<span class="btn_lyrics_disabled"></span>
+		<button type="button" class="folded_bt">
+			<span>点击收起/展开</span>
+		</button>
+		<!-- 底部盒子结束 -->
+		<!-- 播放列表开始 -->
+		<div class="play_list_frame">
+			<div class="play_list_title">
+				<ul id="tab_container" style="width: 270px;">
+					<li class="current">
+						<a href="">播放列表</a>
+					</li>
+					<li class="fm_tab" style="display: none;">
+						<a href="">单曲电台列表</a>
+					</li>
+				</ul>
+				<span class="clear_list">清空列表</span>
+				<span class="close_list"></span>
+			</div>
+			<div class="play_list">
+				<div class="play_list_main">
+					<div class="single_list">
+						<ul id="single_con">
+							<!-- <li class="lis">
+								<strong class="music_name">xy2-002长安</strong>
+								<strong class="singer_name">网易</strong>
+								<strong class="play_time">1:43</strong>
+								<div class="list_cp" style="display: none;">
+									<strong class="btn_like">
+										<span>我喜欢</span>
+									</strong>
+									<strong class="btn_share">
+										<span>分享</span>
+									</strong>
+									<strong class="btn_fav">
+										<span>收藏</span>
+									</strong>
+									<strong class="btn_del">
+										<span>删除</span>
+									</strong>
+								</div>
+							</li>
+							<li class="lis">
+								<strong class="music_name">xy2-001大唐境内</strong>
+								<strong class="singer_name">网易</strong>
+								<strong class="play_time">1:43</strong>
+								<div class="list_cp" style="display: none;">
+									<strong class="btn_like">
+										<span>我喜欢</span>
+									</strong>
+									<strong class="btn_share">
+										<span>分享</span>
+									</strong>
+									<strong class="btn_fav">
+										<span>收藏</span>
+									</strong>
+									<strong class="btn_del">
+										<span>删除</span>
+									</strong>
+								</div>
+							</li> -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="y_player_lyrics" style="display: none;">
+			<div class="lyrics_text">
+				<p id="line_null">
+					<span class="current">&nbsp;</span>
+				</p>
+				<p id="line_0">
+					<span>月华沉梦 - 慕寒</span>
+				</p>
+				<p id="line_1">
+					<span>词：狐倾九</span>
+				</p>
+				<p id="line_2">
+					<span>曲：小尘</span>
+				</p>
+			</div>
+			<div class="lyrics_bg"></div>
+			<span class="close_lyrics"></span>
+		</div>
+	</div>
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<!-- <script src="js/index.js"></script> -->
+	<script src="js/index2.js"></script>
+</body>
+</html>

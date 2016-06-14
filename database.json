@@ -1,0 +1,35 @@
+[
+  {
+    "filename": "./musics/单簧管-加伏特舞曲.mp3",
+    "duration": "02:53",
+    "title": "加伏特舞曲",
+    "artist": "单簧管"
+  },
+  {
+    "filename": "./musics/古典音乐-天鹅湖.mp3",
+    "duration": "03:14",
+    "title": "天鹅湖",
+    "album": "柴可夫斯基-永垂不朽的名曲",
+    "artist": "古典音乐"
+  },
+  {
+    "filename": "./musics/古风-墨殇.mp3",
+    "duration": "03:22",
+    "title": "墨殇(古风音乐)",
+    "artist": "网络歌手"
+  },
+  {
+    "filename": "./musics/吉森信-橙色の時.mp3",
+    "duration": "03:19",
+    "title": "橙色の時",
+    "album": "続 夏目友人帳 音楽集 いとうるわしきもの",
+    "artist": "吉森信"
+  },
+  {
+    "filename": "./musics/少司命-水墨江南.mp3",
+    "duration": "04:54",
+    "title": "水墨江南",
+    "album": "试剑江湖",
+    "artist": "少司命"
+  }
+]
